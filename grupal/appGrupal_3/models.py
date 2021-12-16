@@ -33,14 +33,17 @@ class Contacto(models.Model):
         return self.nombre
 
 class productos(models.Model):
-    nombre = models.CharField(max_length=50)
-    precio = models.FloatField()
+    pelicula = models.CharField(max_length=50)
+    url = models.CharField(max_length=300)
     image = models.ImageField(null=True, blank=True)
 
     @property
     def imageURL(self):
         try:
-            url = 'static/image'+self.image.url
+            url = 'static/images'+self.image.url
         except:
             url = ''
         return url
+    
+    def __str__(self):
+        return f'Se agrega el producto {self.pelicula}'

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Cliente, productos, Contacto
-from .forms import ContactoForm, RegistroForm
+from .forms import ContactoForm, UserRegisterForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.decorators import login_required
@@ -17,19 +17,19 @@ def home(request):
 
 def registro(request):
     if request.method == 'POST':
-        form = RegistroForm(data= request.POST)
+        form = UserRegisterForm(request.POST) 
         if form.is_valid():
-            nombre = form.cleaned_data['nombre']
-            correo = form.cleaned_data['correo']
-            password = form.cleaned_data['password1']
+            username = form.cleaned_data['username']
             form.save()
-            messages.success(request, f'Usuario {nombre} registrado')
+            messages.success(request, f'Usuario {username} creado')
             return redirect('home')
     else:
-        form = RegistroForm()
-    return render(request, 'appGrupal_3/registro.html', {'form':form})
+        form = UserRegisterForm()
+    context = {'form': form}
+    return render(request, 'appGrupal_3/registro.html', context)
 
 @login_required
+
 def contacto (request):
     data ={
         'form': ContactoForm()

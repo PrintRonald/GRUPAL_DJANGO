@@ -3,13 +3,17 @@
 
 {% block content %}
 
-<h1>hola Bienvenido a nuestra tienda  </h1>
+<h1>hola Bienvenido a nuestra tienda de películas  </h1>
 {% for product in producto %}
     <div class="col-lg-4">
         <img src="{{product.imageURL}}" alt="{{product.nombre}}">
         <div>
-            <h6><strong>{{product.precio}}</strong></h6>
-            <hr>
+            <h3>{{product.nombre}}</h3>
+            {% if not request.user.is_authenticated %}
+            <h1> registrate para poder reproductir la película</h1>
+            {% else %}
+            <button type="button" class="btn btn-danger m-auto"><a href="{{product.url}}" target="_blank">Reproducir</a></button>
+            {% endif %}
         </div>
     </div>
     {% endfor %}
