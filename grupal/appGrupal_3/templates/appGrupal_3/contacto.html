@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'appGrupal_3/layout.html' %}
+{% block content %}
+
+
+    <h2>Contactanos!</h2>
+    <div align="center" >
+        <form action="/contacto" class="formulario_contacto" method="POST" >
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" id= "btnEnviar" class="button" > Enviar</button>
+        </form>
+    </div>
+
+{% endblock %}  

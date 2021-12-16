@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends "appGrupal_3/layout.html" %}
+{% block content %}
+
+<form action="/registro" method="POST"   >
+    {% csrf_token %}
+    {{ form.as_p }} 
+    <button>Registrarse</button>
+</form>
+{{mensaje}}
+
+{% endblock %}
+
