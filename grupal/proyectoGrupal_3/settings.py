@@ -83,7 +83,7 @@ DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'postgres',
-        'NAME': 'egrupal', # tener ojo al momento de que coincidan los datos con base de datos postgres
+        'NAME': 'finalegrupal', # tener ojo al momento de que coincidan los datos con base de datos postgres
         'PASSWORD':'mr.22873',
         'HOST': 'localhost',
         'PORT': '5432'
@@ -133,7 +133,7 @@ STATICFILES_DIRS = [
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
-LOGIN_REDIRECT_URL = 'home' # cuando hacemos un login nos redirecciona al feed
+LOGIN_REDIRECT_URL = 'home' # cuando hacemos un login nos redirecciona al home
 LOGIN_URL = 'login'
 
 # Default primary key field type
