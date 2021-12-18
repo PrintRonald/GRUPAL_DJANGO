@@ -36,7 +36,7 @@ class productos(models.Model):
     url = models.CharField(max_length=300)
     image = models.ImageField(null=True, blank=True)
 
-    @property
+    @property # para poder encontrar el url de la imagen para mostrarla
     def imageURL(self):
         try:
             url = 'static/images'+self.image.url

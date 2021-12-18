@@ -1,21 +1,79 @@
 <!DOCTYPE html>
-{% extends 'appGrupal_3/layout.html' %}
-
-{% block content %}
-
-<h1>hola Bienvenido a nuestra tienda de películas  </h1>
-{% for product in producto %}
-    <div class="col-lg-4">
-        <img src="{{product.imageURL}}" alt="{{product.nombre}}">
-        <div>
+{% extends 'appGrupal_3/layout.html' %} {% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PelisTeLoVendo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1>Hola, Bienvenido a nuestra tienda de películas</h1>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+        {% for product in producto %}
+          <div class="carousel-item ">
+            <img src="{{product.imageURL}}" class="d-block w-100" alt="{{product.nombre}}">
             <h3>{{product.nombre}}</h3>
             {% if not request.user.is_authenticated %}
-            <h1> registrate para poder reproductir la película</h1>
+            <h1>registrate para poder reproducir la película :)</h1>
             {% else %}
-            <button type="button" class="btn btn-danger m-auto"><a href="{{product.url}}" target="_blank">Reproducir</a></button>
+            <button type="button" class="btn btn-danger m-auto">
+              <a href="{{product.url}}" target="_blank">Reproducir</a>
+            </button>
             {% endif %}
+          </div>
+          {% endfor %}
+          <div class="carousel-item active">
+            {% if not request.user.is_authenticated %}
+            <h1>
+                Para ingresar a nuestra app y revisar las películas,
+                registrate e ingresa con tu nombre y clave de usuario.
+            </h1>  
+            {% else %}
+            <h1>
+                ¡¡¡Hola {{ user.username }} Que disfrutes de esta selección!!!
+            </h1>
+            {% endif %}
+          </div>
         </div>
-    </div>
-    {% endfor %}
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>    
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
 {% endblock %}
+
+
+
+  
