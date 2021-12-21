@@ -2,13 +2,46 @@
  trabajo final
 
 
- # Objetivo Principal
+# Objetivo Principal
 
   Crear una aplicación con el framework django,para entregar 
   a los usuarios un espacio donde reproducir una selección de películas que se 
   encuentran liberadas en la web (Youtube).
 
-  # Desarrollo
+# Para ver la aplicación vea los siguientes pasos
+
+Para crear un repositorio local
+$ git init 
+
+Clonas el repositorio en tu repositorio local
+$ git clone 
+
+Para agregar archivos al área de trabajo 
+$ git add 
+
+Luego, navegas a la carpeta clonada
+Se ejecuta el entorno virtual, se debe navegar hasta la carpeta que contenga
+el entorno virtual
+call venvGrupal_3/Scripts/activate
+
+Se navega a la carpeta que contenga el archivo manage.py
+en esta carpeta se ejecuta el siguiente comando
+python manage.py runserver
+
+Se realizan las migraciones correspondientes
+python manage.py makemigrations
+python manage.py migrate
+
+Se crea el superusuraio administrador
+python manage.py createsuperuser
+
+Se vuelce a ejecutar el proyecto 
+python manage.py runserver
+
+¡¡¡¡ A DISFRUTAR DE ESTA SELECCIÓN ¡¡¡¡¡
+
+
+# Desarrollo
 
 Principales librerias que se ocupan en la aplicación   
 asgiref==3.4.1
