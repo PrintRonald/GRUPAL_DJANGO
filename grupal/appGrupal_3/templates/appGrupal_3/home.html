@@ -19,8 +19,11 @@
         <div class="carousel-inner">
         {% for product in producto %}
           <div class="carousel-item ">
-            <img src="{{product.imageURL}}" class="d-block w-100" alt="{{product.nombre}}">
-            <h3>{{product.nombre}}</h3>
+            <img src="{{product.imageURL}}" class="d-block w-100 " alt="{{product.nombre}}">
+            <h3>{{product.pelicula}}</h3>
+            <p>
+              {{product.descripcion}}
+            </p>
             {% if not request.user.is_authenticated %}
             <h1>registrate para poder reproducir la película :)</h1>
             {% else %}

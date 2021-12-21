@@ -35,6 +35,7 @@ class productos(models.Model):
     pelicula = models.CharField(max_length=50)
     url = models.CharField(max_length=300)
     image = models.ImageField(null=True, blank=True)
+    descripcion = models.TextField(max_length=500)
 
     @property # para poder encontrar el url de la imagen para mostrarla
     def imageURL(self):
